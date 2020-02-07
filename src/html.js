@@ -12,10 +12,7 @@ export default class HTML extends Component {
           <link rel='shortcut icon' href={favicon} />
         </head>
         <body>
-          <div
-            id='___gatsby'
-            dangerouslySetInnerHTML={{ __html: this.props.body }}
-          />
+          <div id='___gatsby' dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
         </body>
       </html>

@@ -33,16 +33,9 @@ const ArticlePage = ({ data }) => {
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
               />
-              <Share
-                title={post.frontmatter.title}
-                slug={post.fields.slug}
-                excerpt={post.frontmatter.meta_description}
-              />
+              <Share title={post.frontmatter.title} slug={post.fields.slug} excerpt={post.frontmatter.meta_description} />
               <hr />
-              <Disqus
-                title={post.frontmatter.title}
-                slug={post.fields.slug}
-              />
+              <Disqus title={post.frontmatter.title} slug={post.fields.slug} />
             </div>
           </div>
         </div>
@@ -65,8 +58,8 @@ export const pageQuery = graphql`
       id
       html
       fields {
-            slug
-          }
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title

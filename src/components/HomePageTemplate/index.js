@@ -4,15 +4,7 @@ import Offerings from '../Offerings'
 import Testimonials from '../Testimonials'
 import PropTypes from 'prop-types'
 
-const HomePageTemplate = ({
-  title,
-  heading,
-  description,
-  offerings,
-  meta_title,
-  meta_description,
-  testimonials,
-}) => (
+const HomePageTemplate = ({ title, heading, description, offerings, meta_title, meta_description, testimonials }) => (
   <div>
     <Helmet>
       <title>{meta_title}</title>
@@ -24,9 +16,7 @@ const HomePageTemplate = ({
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <div className='section'>
-                <h1 className='title'>
-                  {title}
-                </h1>
+                <h1 className='title'>{title}</h1>
               </div>
             </div>
           </div>
@@ -35,15 +25,12 @@ const HomePageTemplate = ({
     </section>
     <section className='section section--gradient'>
       <div className='container'>
-
         <div className='section'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <div className='content'>
                 <div>
-                  <h3 className='has-text-weight-semibold is-size-2'>
-                    {heading}
-                  </h3>
+                  <h3 className='has-text-weight-semibold is-size-2'>{heading}</h3>
                   <p>{description}</p>
                 </div>
                 <Offerings gridItems={offerings.blurbs} />
@@ -68,7 +55,6 @@ HomePageTemplate.propTypes = {
     blurbs: PropTypes.array,
   }),
   testimonials: PropTypes.array,
-
 }
 
 export default HomePageTemplate

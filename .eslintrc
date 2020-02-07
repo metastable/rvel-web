@@ -1,14 +1,22 @@
 {
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": true
+  },
+  "globals": {
+    "googletag" : true,
+    "ga" : true,
+    "graphql": true,
+    "__PATH_PREFIX__": true
+  },
   "parser": "babel-eslint",
   "extends": [
     "standard",
     "standard-trailing-commas",
     "standard-react"
   ],
-  "globals": {
-    "graphql": true,
-    "__PATH_PREFIX__": true
-  },
   "rules": {
     "react/prop-types": "off",
     "camelcase": "off",

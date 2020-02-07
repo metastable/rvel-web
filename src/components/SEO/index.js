@@ -71,28 +71,18 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
       <meta name='description' content={meta_desc} />
       <meta name='image' content={cover} />
       {/* Schema.org tags */}
-      <script type='application/ld+json'>
-        {JSON.stringify(breadcrumbSchemaOrgJSONLD)}
-      </script>
-      <script type='application/ld+json'>
-        {JSON.stringify(blogPostingSchemaOrgJSONLD)}
-      </script>
+      <script type='application/ld+json'>{JSON.stringify(breadcrumbSchemaOrgJSONLD)}</script>
+      <script type='application/ld+json'>{JSON.stringify(blogPostingSchemaOrgJSONLD)}</script>
       {/* OpenGraph tags */}
       <meta property='og:url' content={postURL} />
       <meta property='og:type' content='article' />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={meta_desc} />
       <meta property='og:image' content={image} />
-      <meta
-        property='fb:app_id'
-        content={config.siteFBAppID ? config.siteFBAppID : ''}
-      />
+      <meta property='fb:app_id' content={config.siteFBAppID ? config.siteFBAppID : ''} />
       {/* Twitter Card tags */}
       <meta name='twitter:card' content='summary_large_image' />
-      <meta
-        name='twitter:creator'
-        content={config.userTwitter ? config.userTwitter : ''}
-      />
+      <meta name='twitter:creator' content={config.userTwitter ? config.userTwitter : ''} />
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={meta_desc} />
       <meta name='twitter:image' content={image} />

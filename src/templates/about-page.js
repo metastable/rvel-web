@@ -15,11 +15,7 @@ const AboutPage = ({ data }) => {
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
       </Helmet>
-      <AboutPageTemplate
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
-      />
+      <AboutPageTemplate contentComponent={HTMLContent} title={post.frontmatter.title} content={post.html} />
     </Layout>
   )
 }

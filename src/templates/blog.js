@@ -41,9 +41,7 @@ export default class BlogPage extends Component {
         <Helmet>
           <title>Blog | Gatsby Starter Business</title>
           {/* Schema.org tags */}
-          <script type='application/ld+json'>
-            {JSON.stringify(websiteSchemaOrgJSONLD)}
-          </script>
+          <script type='application/ld+json'>{JSON.stringify(websiteSchemaOrgJSONLD)}</script>
         </Helmet>
         <section className='hero is-primary is-bold'>
           <div className='hero-body'>
@@ -51,9 +49,7 @@ export default class BlogPage extends Component {
               <div className='columns'>
                 <div className='column is-10 is-offset-1'>
                   <div className='section'>
-                    <h1 className='title'>
-                      Blog
-                    </h1>
+                    <h1 className='title'>Blog</h1>
                   </div>
                 </div>
               </div>

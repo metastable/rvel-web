@@ -24,9 +24,7 @@ class Layout extends Component {
           <meta name='description' content={config.siteDescription} />
         </Helmet>
         <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
-        <div id='content-wrapper'>
-          {this.props.children}
-        </div>
+        <div id='content-wrapper'>{this.props.children}</div>
         <Footer />
       </div>
     )

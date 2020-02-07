@@ -13,9 +13,7 @@ const AboutPageTemplate = ({ title, content, contentComponent }) => {
             <div className='columns'>
               <div className='column is-10 is-offset-1'>
                 <div className='section'>
-                  <h1 className='title'>
-                    {title}
-                  </h1>
+                  <h1 className='title'>{title}</h1>
                 </div>
               </div>
             </div>
