@@ -1,6 +1,6 @@
-const config = require('./config')
+const config = require('./config');
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 module.exports = {
   siteMetadata: {
@@ -19,8 +19,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-typescript`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -46,6 +45,8 @@ module.exports = {
         name: 'images',
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -117,11 +118,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-feed',
       options: {
-        setup (ref) {
-          const ret = ref.query.site.siteMetadata.rssMetadata
-          ret.allMarkdownRemark = ref.query.allMarkdownRemark
-          ret.generator = config.siteTitle
-          return ret
+        setup(ref) {
+          const ret = ref.query.site.siteMetadata.rssMetadata;
+          ret.allMarkdownRemark = ref.query.allMarkdownRemark;
+          ret.generator = config.siteTitle;
+          return ret;
         },
         query: `
                 {
@@ -142,8 +143,8 @@ module.exports = {
               `,
         feeds: [
           {
-            serialize (ctx) {
-              const rssMetadata = ctx.query.site.siteMetadata.rssMetadata
+            serialize(ctx) {
+              const rssMetadata = ctx.query.site.siteMetadata.rssMetadata;
               return ctx.query.allMarkdownRemark.edges
                 .filter(edge => edge.node.frontmatter.templateKey === 'article-page')
                 .map(edge => ({
@@ -155,7 +156,7 @@ module.exports = {
                   url: rssMetadata.site_url + edge.node.fields.slug,
                   guid: rssMetadata.site_url + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
-                }))
+                }));
             },
             query: `
                     {
@@ -203,6 +204,13 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
+      options: {
+        develop: true, // Activates purging in npm run develop
+        purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
+      },
+    }, // must be after other CSS plugins
+    'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-}
+};

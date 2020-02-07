@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import ArticleTemplate from '../../components/ArticleTemplate'
+import React from 'react';
+import PropTypes from 'prop-types';
+import ArticleTemplate from '../../components/ArticleTemplate';
 
 const ArticlePreview = ({ entry, widgetFor }) => {
   return (
-    <div className='container content'>
-      <div className='columns'>
-        <div className='column is-10 is-offset-1'>
+    <div className="container content">
+      <div className="columns">
+        <div className="column is-10 is-offset-1">
           <ArticleTemplate
             content={widgetFor('body')}
             cover={entry.getIn(['data', 'cover'])}
@@ -18,14 +18,14 @@ const ArticlePreview = ({ entry, widgetFor }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 ArticlePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
-}
+};
 
-export default ArticlePreview
+export default ArticlePreview;

@@ -1,0 +1,19 @@
+overwrite: true
+schema: "http://localhost:8000/___graphql"
+generates:
+  ./src/gatsby-types.d.ts:
+    documents: "src/**/*.{ts,tsx}"
+    pluckConfig:
+      modules:
+        - name: gatsby
+          identifier: graphql
+    plugins:
+      - add: '// tslint:disable'
+      - typescript
+      - typescript-operations
+    config:
+      avoidOptionals: true
+      immutableTypes: true
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
